@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import Head from 'next/head';
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import {
   fontSizes,
@@ -26,8 +25,6 @@ import { AppHead } from '@/components/head';
 import { useRouter } from 'next/router';
 import { iconHttp } from '@/http/iconHttp';
 import { publicHttp } from '@/http/publicHttps';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const sleep = async (timeout: number) =>
   new Promise((resolve) => setTimeout(resolve, timeout));
