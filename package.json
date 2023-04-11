@@ -6,7 +6,7 @@
     "dev": "HTTPS=true NODE_ENV=local SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem next dev",
     "dev:https": "HTTPS=true SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem npm run dev",
     "build": "next build",
-    "start": "NODE_ENV=local next start",
+    "start": "next start -H 0.0.0.0 -p 3000",
     "lint": "next lint"
   },
   "dependencies": {
