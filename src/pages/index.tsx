@@ -48,7 +48,7 @@ export default function Home(props: any) {
 
   useEffect(() => {
     if ((window as any).ga) {
-      window.ga('send', 'event', 'Button', 'Click', 'Contact Us');
+      (window as any).ga('send', 'event', 'Button', 'Click', 'Contact Us');
     }
   }, []);
 
