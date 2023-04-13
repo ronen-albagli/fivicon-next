@@ -12,14 +12,14 @@ export const AvatarMenuSection = ({ user }: any) => {
   return (
     <LoginWrapper>
       <>
-        <Button color={pallette.lightWhite}>
-          {/* <Link href={'https://fivicon.com'}> */}
+        {/* <Button color={pallette.lightWhite}>
           <Link href={'http://localhost:3002/api'}>
             <Text weight={fontWeights.big} color={pallette.lightWhite}>
               Console
             </Text>
           </Link>
-        </Button>
+        </Button> */}
+
         <MenuBurger onClick={() => setMenuOpen(!menuOpen)}>
           <Bar />
           <Bar />
@@ -72,10 +72,10 @@ const MenuBurger = styled.div`
   justify-content: space-evenly;
   align-items: center;
   border-radius: 6px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  /* border-top-left-radius: 0;
+  border-bottom-left-radius: 0; */
   border: 2px solid ${pallette.lightWhite};
-  border-left: 1px solid transparent;
+  /* border-left: 1px solid transparent; */
   transition: border-color 0.3s ease;
 
   &:hover {

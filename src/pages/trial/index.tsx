@@ -297,8 +297,8 @@ const Popup = (props: any) => {
         >
           Unfortunately, it seems that you have exceeded the maximum number of
           attempts allowed. Please try again later after some time has passed.
-          Alternatively, you can sign up or log in to Fivicon, which will grant
-          you access to explore our API in greater detail.
+          {/* Alternatively, you can sign up or log in to Fivicon, which will grant
+          you access to explore our API in greater detail. */}
         </Text>
 
         <Text
@@ -315,7 +315,7 @@ const Popup = (props: any) => {
           style={{ display: 'flex', flexDirection: 'row', alignSelf: 'end' }}
         >
           <Button onClick={props.onClose}>Close</Button>
-          <Button
+          {/* <Button
             className="go-to-console"
             onClick={() => {
               props.onClose();
@@ -323,7 +323,7 @@ const Popup = (props: any) => {
             }}
           >
             Go to Console
-          </Button>
+          </Button> */}
         </div>
       </PopupContent>
     </PopupWrapper>
