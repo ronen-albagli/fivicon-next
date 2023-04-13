@@ -6,7 +6,7 @@ export const AppHead = () => {
       <title>Fivicon</title>
       <script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-JD6976L2TL`}
       />
       <script
         dangerouslySetInnerHTML={{
