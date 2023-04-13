@@ -5,7 +5,7 @@ export const initGA = (trackingID: string) => {
 };
 
 export const logPageView = () => {
-  ReactGA.pageview(window.location.pathname);
+  ReactGA.pageview(window?.location?.pathname);
 };
 
 export const logEvent = ({ category, action, label, value }: any) => {

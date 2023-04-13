@@ -25,6 +25,7 @@ import { AppHead } from '@/components/head';
 import { useRouter } from 'next/router';
 import { iconHttp } from '@/http/iconHttp';
 import { publicHttp } from '@/http/publicHttps';
+import { logPageView } from '@/utils/ga';
 
 export const sleep = async (timeout: number) =>
   new Promise((resolve) => setTimeout(resolve, timeout));
@@ -44,6 +45,13 @@ export default function Home(props: any) {
   useEffect(() => {
     fetchFiviStats();
   }, []);
+
+  useEffect(() => {
+    if ((window as any).ga) {
+      window.ga('send', 'event', 'Button', 'Click', 'Contact Us');
+    }
+  }, []);
+
   return (
     <>
       <GlobalStyle />
