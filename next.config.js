@@ -1,10 +1,11 @@
-const withPlugins = require('next-compose-plugins');
-const withImages = require('next-images');
-const withFonts = require('next-fonts');
+// const withPlugins = require('next-compose-plugins');
+// const withImages = require('next-images');
+// const withFonts = require('next-fonts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  https: true,
   env: {
     NEXT_PUBLIC_ENV: 'sdfsdfsdfds',
   },
