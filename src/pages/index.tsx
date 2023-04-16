@@ -25,7 +25,7 @@ import { AppHead } from '@/components/head';
 import { useRouter } from 'next/router';
 import { iconHttp } from '@/http/iconHttp';
 import { publicHttp } from '@/http/publicHttps';
-import { logPageView } from '@/utils/ga';
+import { logPageView } from '../utils/ga';
 
 export const sleep = async (timeout: number) =>
   new Promise((resolve) => setTimeout(resolve, timeout));

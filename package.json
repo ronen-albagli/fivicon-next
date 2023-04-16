@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "HTTPS=true NODE_ENV=local SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem next dev",
+    "dev": "node server.ts ",
     "dev:https": "HTTPS=true SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem npm run dev",
     "build": "next build",
     "start": "next start -H 0.0.0.0 -p 3000",

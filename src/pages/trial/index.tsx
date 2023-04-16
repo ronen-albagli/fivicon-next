@@ -102,7 +102,7 @@ const TrialPage = ({ user }: ProfileProps) => {
       <AppHead />
       <main>
         <Header />
-        <Section ref={inputRef}>
+        <Section ref={inputRef} background={pallette.black}>
           <LottieAnimations zIndex={-1} position="fixed" animation={Bubbles} />
           <TextContainersAnimate>
             <HeaderText

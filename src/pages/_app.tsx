@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import { initGA, logPageView } from '@/utils/ga';
+import { initGA, logPageView } from '../utils/ga';
 import type { AppProps } from 'next/app';
 import { withRouter } from 'next/router';
 import { useEffect } from 'react';
