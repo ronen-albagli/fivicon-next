@@ -6,9 +6,9 @@
 const nextConfig = {
   reactStrictMode: true,
   https: true,
-  env: {
-    NEXT_PUBLIC_ENV: 'sdfsdfsdfds',
-  },
+  // env: {
+  //   NEXT_PUBLIC_ENV: 'sdfsdfsdfds',
+  // },
   async rewrites() {
     return [
       {

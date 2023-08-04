@@ -11,7 +11,6 @@ export default handleAuth({
       });
 
       const accessToken = user.idToken;
-      console.log('accessToken',accessToken)
 
       res.writeHead(302, { Location: '/' });
       res.end();

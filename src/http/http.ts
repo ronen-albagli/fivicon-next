@@ -3,7 +3,7 @@ import { httpConfig } from './httpConfig';
 
 export const baseHTTP = (accessToken?: string) => {
   const httpEnvConfig = (httpConfig as any)[
-    process?.env?.ENVIRONMENT || 'local'
+    process?.env?.NEXT_PUBLIC_ENV || 'local'
   ] as any;
 
   const baseHttp = axios.create({
