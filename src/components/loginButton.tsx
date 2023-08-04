@@ -12,13 +12,13 @@ export const AvatarMenuSection = ({ user }: any) => {
   return (
     <LoginWrapper>
       <>
-        {/* <Button color={pallette.lightWhite}>
-          <Link href={'http://localhost:3002/api'}>
+        <Button color={pallette.lightWhite}>
+          <Link href={ !user  ? '/api/auth/login' :'/console/api'}>
             <Text weight={fontWeights.big} color={pallette.lightWhite}>
-              Console
+            { !user  ? 'Login' : 'Console'}
             </Text>
           </Link>
-        </Button> */}
+        </Button>
 
         <MenuBurger onClick={() => setMenuOpen(!menuOpen)}>
           <Bar />
@@ -72,6 +72,8 @@ const MenuBurger = styled.div`
   justify-content: space-evenly;
   align-items: center;
   border-radius: 6px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
   /* border-top-left-radius: 0;
   border-bottom-left-radius: 0; */
   border: 2px solid ${pallette.lightWhite};

@@ -4,9 +4,20 @@ import styled from 'styled-components';
 import { AvatarMenuSection } from './loginButton';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useEffect } from 'react';
+import { getAccessToken, withApiAuthRequired } from '@auth0/nextjs-auth0';
 
 const Header = ({ background = 'transparent' }: any) => {
   useEffect(() => {}, []);
+  const { user } = useUser()
+
+  // useEffect(async ()=> {
+  //   const { accessToken } = await getAccessToken(req, res, {
+  //     scopes: ['read:products']
+  //   });
+  // })
+
+  console.log('user',user)
+
   return (
     <AppHeaderWrapper background={background}>
       <IconWrapper>
@@ -32,7 +43,7 @@ const Header = ({ background = 'transparent' }: any) => {
           </li>
         </ul> */}
       </nav>
-      <AvatarMenuSection user={undefined} />
+      <AvatarMenuSection user={user} />
     </AppHeaderWrapper>
   );
 };

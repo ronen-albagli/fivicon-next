@@ -4,8 +4,26 @@ import Header from '@/components/header';
 import { SideMenu } from '@/components/sideMenu';
 import { fontSizes, fontWeights, HeaderText, Text } from '@/shared/texts';
 import { ConsoleContainer, ConsoleLayout, Content } from '.';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const ApiPage = () => {
+  const [apiKey, setApiKey] = useState(null)
+
+  useEffect(()=>{
+    getApiKey()
+  },[])
+
+  const getApiKey = async () => {
+    const {data: api} = await axios.get('/api/user-api-key')
+    console.log('api.data',api.data)
+    setApiKey(api.data)
+  }
+
+  const handleCopyClicked = () => {
+    apiKey && navigator.clipboard.writeText(apiKey);
+  };
+
   return (
     <ConsoleContainer>
       <AppHead />
@@ -21,7 +39,7 @@ const ApiPage = () => {
           >
             Your API key
           </Text>
-          <CodeBlock code={'Create account to get your api key'} type="bash" />
+          <CodeBlock code={`${apiKey}`} type="bash"     onCopy={handleCopyClicked}/>
         </Content>
       </ConsoleLayout>
     </ConsoleContainer>

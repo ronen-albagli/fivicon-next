@@ -6,10 +6,13 @@ import DashboardSVG from '../../public/svg/dashboard.svg';
 import { fontSizes, pallette, Text } from '@/shared/texts';
 
 export const Menu = ({ menuOpen: isOpen = false, isUserLoggedIn }: any) => {
+
+  console.log('isUserLoggedIn',isUserLoggedIn)
   return (
     <MenuContainer isOpen={isOpen} isUserLoggedIn={isUserLoggedIn} tabIndex="1">
       <MenuListWrapper>
-        {/* <MenuListElement>
+        {/* {isUserLoggedIn ?
+        <MenuListElement>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -27,7 +30,14 @@ export const Menu = ({ menuOpen: isOpen = false, isUserLoggedIn }: any) => {
           <Link href={'/console/api'}>
             <Text>Console</Text>
           </Link>
-        </MenuListElement> */}
+        </MenuListElement>
+        : 
+        <MenuListElement>
+          <Link href={'/api/auth/login'}>
+            <Text>Login</Text>
+          </Link>
+        </MenuListElement>
+} */}
         <MenuListElement>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -72,6 +82,14 @@ export const Menu = ({ menuOpen: isOpen = false, isUserLoggedIn }: any) => {
             <Text>Trial</Text>
           </Link>
         </MenuListElement>
+          {isUserLoggedIn &&
+        <MenuListElement>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="humbleicons hi-logout"><path xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12h-9.5m7.5 3l3-3-3-3m-5-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h5a2 2 0 002-2v-1"/></svg>
+          <Link href="/api/auth/logout">
+            <Text>logout</Text>
+          </Link>
+        </MenuListElement>
+        }
       </MenuListWrapper>
     </MenuContainer>
   );
@@ -105,7 +123,7 @@ const MenuContainer = styled.div<any>`
     props.isOpen &&
     css`
       /* &:focus { */
-      height: ${props.isUserLoggedIn ? '140px' : '120px'};
+      height: ${props.isUserLoggedIn ? '160px' : '120px'};
       top: 60px;
       background-color: #434343;
       ul {

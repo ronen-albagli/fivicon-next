@@ -26,6 +26,9 @@ import { Button } from '@/shared/buttons';
 import { FiviconRights } from '@/components/footer';
 import { useRouter } from 'next/router';
 import { publicHttp } from '@/http/publicHttps';
+import axios from 'axios';
+import { useUser } from '@auth0/nextjs-auth0/client';
+
 
 type ProfileProps = {
   user: any;
@@ -38,10 +41,10 @@ const TrialPage = ({ user }: ProfileProps) => {
   const iconResultRef = useRef(null);
   const inputRef = useRef(null);
 
+  const { user: u } = useUser()
   const [popupOpen, setPopupOpen] = useState(false);
 
   const [notification, setNotification] = useState('');
-
   useEffect(() => {
     if (notification) {
       setTimeout(() => setNotification(''), 5000);
@@ -65,13 +68,23 @@ const TrialPage = ({ user }: ProfileProps) => {
     (inputRef?.current as any)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const getLogo = async (name: string) => {
+  const getLogo = async (name: string, isLoggedIn = false) => {
     try {
-      const { data } = await publicHttp.searchIcon()(name);
+      let logoData;
 
-      return data;
+      if(isLoggedIn){
+         const {data} = await axios.post('/api/get-logo', {name})
+  
+        logoData = data.data
+      } else {
+        const { data } = await publicHttp.searchIcon()(name);
+
+        logoData = data
+      }
+
+      return logoData;
     } catch (error: any) {
-      if (error.response.status === 429) {
+      if (error.response?.status === 429) {
         setPopupOpen(true);
       }
       console.warn('ERROR', error);
@@ -88,7 +101,7 @@ const TrialPage = ({ user }: ProfileProps) => {
   const searchLogo = async () => {
     setFetching(true);
 
-    const iconData = await getLogo(input);
+    const iconData = await getLogo(input, !!u);
     setPayload(iconData);
     setFetching(false);
   };
@@ -296,7 +309,9 @@ const Popup = (props: any) => {
           color={pallette.lightBlack}
         >
           Unfortunately, it seems that you have exceeded the maximum number of
-          attempts allowed. Please try again later after some time has passed.
+          attempts allowed. Please try again later after some time has passed or 
+          you can  <a style={{color:pallette.lightPurple, fontWeight:'bold'}} href="/api/auth/login">login</a>
+
           {/* Alternatively, you can sign up or log in to Fivicon, which will grant
           you access to explore our API in greater detail. */}
         </Text>

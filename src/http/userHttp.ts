@@ -7,4 +7,8 @@ export const userHttp = {
     (access: string) =>
     ({ id }: any) =>
       http(access).post(`auth/init`, { userId: id }),
+    getMyApiKey: (access: string) => () => http(access).get(`dashboard-api/keys/me`),
 };
+
+
+

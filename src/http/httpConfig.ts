@@ -1,6 +1,6 @@
 export const httpConfig = {
   local: {
-    base: 'https://api.fivicon-local.com:3090/',
+    base: 'http://api.fivicon-local.com:3090/',
   },
   k8s: {
     base: 'http://localhost:3090/',

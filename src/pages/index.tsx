@@ -80,7 +80,6 @@ export default function Home(props: any) {
               Welcome to fivicon
             </HeaderText>
             <Text
-              // style={{ lineHeight: '84px' }}
               color={pallette?.white}
               size={fontSizes.title}
               weight={fontWeights.superLight}
