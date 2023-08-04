@@ -310,7 +310,7 @@ const Popup = (props: any) => {
         >
           Unfortunately, it seems that you have exceeded the maximum number of
           attempts allowed. Please try again later after some time has passed or 
-          you can  <a style={{color:pallette.lightPurple, fontWeight:'bold'}} href="/api/auth/login">login</a>
+          you can  <span style={{color:pallette.lightPurple, fontWeight:'bold', outline:'None', backgroundColor: 'transparent', borderColor:'transparent'}} onClick={()=>router.push('/api/auth/login')}>login</span>
 
           {/* Alternatively, you can sign up or log in to Fivicon, which will grant
           you access to explore our API in greater detail. */}
