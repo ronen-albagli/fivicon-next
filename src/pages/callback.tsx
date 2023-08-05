@@ -13,7 +13,6 @@ type ProfileProps = {
 const CallbackPage = ()  => {
     const {user} = useUser();
     const router = useRouter();
-        console.log('ZAZI', user)
     useEffect(() => {
         axios
           .get('/api/callback')
@@ -27,7 +26,9 @@ const CallbackPage = ()  => {
 
         
 return  (
+  <div  style={{backgroundColor:'black', height:'100vh'}}>
     <LottieAnimations zIndex={1} position="fixed" animation={Bubbles} />
+    </div>
 )
 
 }

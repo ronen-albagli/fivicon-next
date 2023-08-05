@@ -12,7 +12,7 @@ export const Counter = ({ title, number, startCount = true }: any) => {
 
   const startCountUp = async () => {
     if (initial < number) {
-      await sleep(50);
+      await sleep(15);
       setInitial(initial + 1);
     }
   };

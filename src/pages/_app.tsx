@@ -6,11 +6,7 @@ import { useEffect } from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0/client'
 
 export default function App({ Component, pageProps }: AppProps) {
-  // initGA('G-JD6976L2TL');
-  // const TrackedComponent = withRouter(Component);
   const { user } = pageProps
-
-  console.log('user',user)
 
   return( 
    <UserProvider user={user}>

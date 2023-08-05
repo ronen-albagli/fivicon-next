@@ -36,15 +36,11 @@ export default function Home(props: any) {
   const [fiviStats, setFiviStats] = useState<any>(null);
   const { user, error, isLoading } = useUser();
 
-  console.log('USER',user)
-
   const fetchFiviStats = async () => {
     const stats = await publicHttp.getFiviStats();
 
     setFiviStats(stats.data);
   };
-
-  // console.log('env', process.env);
 
   useEffect(() => {
     fetchFiviStats();

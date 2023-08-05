@@ -14,11 +14,14 @@ export default async  function handler(
     try {
           var options = {
             method: 'POST',
-            url: 'https://dev-0cwbj4goudyi1uwn.us.auth0.com/oauth/token',
+            url: `${process.env.AUTH0_BASE_URL}/oauth/token`,
             headers: {'content-type': 'application/json'},
             data:
                 {
-                    "client_id":"xH8CvIMBc8hsj13K9f9GMstN9qO2mwBV","client_secret":"1-XORRlJKSoTRV_WOvkz_ai9Qyy0e-1RSfXKBlEHfWM7C25GSQBbO8y1lvm7MSCj","audience":"https://dev-0cwbj4goudyi1uwn.us.auth0.com/api/v2/","grant_type":"client_credentials"
+                    "client_id":process.env.AUTH0_CLIENT_ID,
+                    "client_secret":process.env.AUTH0_CLIENT_SECRET,
+                    "audience": `${process.env.AUTH0_BASE_URL}/api/v2/`,
+                    "grant_type":"client_credentials"
 
                 }
           };

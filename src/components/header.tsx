@@ -10,14 +10,6 @@ const Header = ({ background = 'transparent' }: any) => {
   useEffect(() => {}, []);
   const { user } = useUser()
 
-  // useEffect(async ()=> {
-  //   const { accessToken } = await getAccessToken(req, res, {
-  //     scopes: ['read:products']
-  //   });
-  // })
-
-  console.log('user',user)
-
   return (
     <AppHeaderWrapper background={background}>
       <IconWrapper>
@@ -28,20 +20,8 @@ const Header = ({ background = 'transparent' }: any) => {
         >
           <Link href="/">fivicon</Link>
         </Text>
-        {/* <p>fivicon</p> */}
       </IconWrapper>
       <nav>
-        {/* <ul>
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/contact">Contact</Link>
-          </li>
-        </ul> */}
       </nav>
       <AvatarMenuSection user={user} />
     </AppHeaderWrapper>

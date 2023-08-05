@@ -11,16 +11,19 @@ export default async  function handler(
     res: NextApiResponse<any>
   ) {
     try {
-          var options = {
-            method: 'POST',
-            url: 'https://dev-0cwbj4goudyi1uwn.us.auth0.com/oauth/token',
-            headers: {'content-type': 'application/json'},
-            data:
-                {
-                    "client_id":"xH8CvIMBc8hsj13K9f9GMstN9qO2mwBV","client_secret":"1-XORRlJKSoTRV_WOvkz_ai9Qyy0e-1RSfXKBlEHfWM7C25GSQBbO8y1lvm7MSCj","audience":"https://dev-0cwbj4goudyi1uwn.us.auth0.com/api/v2/","grant_type":"client_credentials"
+      var options = {
+        method: 'POST',
+        url: `${process.env.AUTH0_BASE_URL}/oauth/token`,
+        headers: {'content-type': 'application/json'},
+        data:
+            {
+                "client_id":process.env.AUTH0_CLIENT_ID,
+                "client_secret":process.env.AUTH0_CLIENT_SECRET,
+                "audience": `${process.env.AUTH0_BASE_URL}/api/v2/`,
+                "grant_type":"client_credentials"
 
-                }
-          };
+            }
+      };
 
         const {data: {access_token}} = await axios.request(options);
 
@@ -28,7 +31,8 @@ export default async  function handler(
             const session = await getSession(req, res);
             const auth0UserId = session?.user?.sub;
 
-             await userHttp.signInUser(access_token)(auth0UserId)
+            
+            await userHttp.signInUser(access_token)(auth0UserId)
 
             res.status(204).json({})
         }

@@ -16,7 +16,6 @@ const ApiPage = () => {
 
   const getApiKey = async () => {
     const {data: api} = await axios.get('/api/user-api-key')
-    console.log('api.data',api.data)
     setApiKey(api.data)
   }
 
