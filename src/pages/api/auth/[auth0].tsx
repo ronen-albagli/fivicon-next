@@ -5,7 +5,7 @@ export default handleAuth({
     try {
       const data :any = await handleLogin(req, res, {
         authorizationParams: {
-          redirect_uri: "https://fivicon.com/api/auth/callback",
+          redirect_uri: "https://fivicon-local.com:3000/api/auth/callback",
           scope: 'openid profile email offline_access',
         },
         returnTo: '/callback',
@@ -14,10 +14,9 @@ export default handleAuth({
 
       console.log('in$$$$$')
 
-      const accessToken = data?.user?.idToken;
+      // const accessToken = data?.user?.idToken;
 
-      res.writeHead(302, { Location: '/' });
-      res.end();
+      res.status(304).send({})
     } catch (error:any) {
       console.error(error);
       res.status(error.status || 500).end(error.message);
