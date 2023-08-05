@@ -12,6 +12,7 @@ export default async  function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>
   ) {
+    console.log('process.env.AUTH0_CLIENT_SECRET',process.env.AUTH0_CLIENT_SECRET)
     try {
           var options = {
             method: 'POST',
@@ -19,7 +20,7 @@ export default async  function handler(
             headers: {'content-type': 'application/json'},
             data:
                 {
-                    "client_id":process.env.AUTH0_CLIENT_ID,
+                    "client_id": process.env.AUTH0_CLIENT_ID,
                     "client_secret":process.env.AUTH0_CLIENT_SECRET,
                     "audience": `${process.env.AUTH0_BASE_URL}/api/v2/`,
                     "grant_type":"client_credentials"

@@ -10,6 +10,8 @@ export default async  function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>
   ) {
+    console.log('process.env.AUTH0_CLIENT_SECRET',process.env.AUTH0_CLIENT_SECRET)
+
     try {
       var options = {
         method: 'POST',
