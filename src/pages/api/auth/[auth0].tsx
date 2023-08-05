@@ -12,14 +12,12 @@ export default handleAuth({
       }
       );
 
-      console.log('in$$$$$')
+      console.log('in$$$$$', data)
 
-      // const accessToken = data?.user?.idToken;
-
-      res.status(304).send({})
+      res.status(302).send({data});
     } catch (error:any) {
       console.error(error);
-      res.status(error.status || 500).end(error.message);
+      // res.status(error.status || 500).end(error.message);
     }
   },
 });
