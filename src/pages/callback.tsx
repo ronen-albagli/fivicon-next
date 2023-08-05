@@ -13,7 +13,7 @@ type ProfileProps = {
 const CallbackPage = ()  => {
     const {user} = useUser();
     const router = useRouter();
-    
+        console.log('ZAZI', user)
     useEffect(() => {
         axios
           .get('/api/callback')

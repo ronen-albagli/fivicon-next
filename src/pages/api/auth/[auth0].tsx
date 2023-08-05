@@ -3,14 +3,18 @@ import { handleAuth, handleLogin } from '@auth0/nextjs-auth0';
 export default handleAuth({
   async login(req, res) {
     try {
-      const { user }:any = await handleLogin(req, res, {
+      const data :any = await handleLogin(req, res, {
         authorizationParams: {
+          redirect_uri: "https://fivicon.com/api/auth/callback",
           scope: 'openid profile email offline_access',
         },
         returnTo: '/callback',
-      });
+      }
+      );
 
-      const accessToken = user.idToken;
+      console.log('in$$$$$')
+
+      const accessToken = data?.user?.idToken;
 
       res.writeHead(302, { Location: '/' });
       res.end();
@@ -20,3 +24,7 @@ export default handleAuth({
     }
   },
 });
+
+
+// import { handleAuth } from '@auth0/nextjs-auth0';
+// export default handleAuth();

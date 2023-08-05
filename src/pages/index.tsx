@@ -26,6 +26,7 @@ import { useRouter } from 'next/router';
 import { iconHttp } from '@/http/iconHttp';
 import { publicHttp } from '@/http/publicHttps';
 import { logPageView } from '../utils/ga';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export const sleep = async (timeout: number) =>
   new Promise((resolve) => setTimeout(resolve, timeout));
@@ -33,6 +34,9 @@ export const sleep = async (timeout: number) =>
 export default function Home(props: any) {
   const router = useRouter();
   const [fiviStats, setFiviStats] = useState<any>(null);
+  const { user, error, isLoading } = useUser();
+
+  console.log('USER',user)
 
   const fetchFiviStats = async () => {
     const stats = await publicHttp.getFiviStats();
@@ -40,7 +44,7 @@ export default function Home(props: any) {
     setFiviStats(stats.data);
   };
 
-  console.log('env', process.env);
+  // console.log('env', process.env);
 
   useEffect(() => {
     fetchFiviStats();
