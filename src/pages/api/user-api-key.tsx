@@ -19,8 +19,8 @@ export default async  function handler(
             headers: {'content-type': 'application/json'},
             data:
                 {
-                    "client_id": process.env.AUTH0_CLIENT_ID,
-                    "client_secret":process.env.AUTH0_CLIENT_SECRET,
+                   "client_id":process.env.AUTH0_M2M_CLIENT_ID,
+                   "client_secret":process.env.AUTH0_M2M_SECRET,
                     "audience": `${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/`,
                     "grant_type":"client_credentials"
 
