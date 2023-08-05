@@ -5,7 +5,7 @@ export default handleAuth({
     try {
       const data :any = await handleLogin(req, res, {
         authorizationParams: {
-          redirect_uri: "https://fivicon-local.com:3000/api/auth/callback",
+          redirect_uri: "https://fivicon.com/api/auth/callback",
           scope: 'openid profile email offline_access',
         },
         returnTo: '/callback',
