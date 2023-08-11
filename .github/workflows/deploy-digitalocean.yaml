@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy to Droplet
         run: |
-          ssh -o StrictHostKeyChecking=no ssh root@64.226.96.194  'cd ./fivicon-next && git pull && docker-compose up -d'
+          ssh -o StrictHostKeyChecking=no root@64.226.96.194  'cd ./fivicon-next && git pull && docker-compose up -d'
