@@ -13,17 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up SSH
+      - name: Deploy to Droplet
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.DIGITAL_SSH }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-add ~/.ssh/id_rsa
           ssh-keyscan -H 64.226.96.194 >> ~/.ssh/known_hosts
-
-      - name: Verify SSH Configuration
-        run: ssh -v -o StrictHostKeyChecking=no root@64.226.96.194 'echo "SSH connection successful!"'
-
-      - name: Deploy to Droplet
-        run: |
-          ssh root@64.226.96.194 'cd ./fivicon-next && git pull && docker-compose up -d'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@64.226.96.194 'cd ./fivicon-next && git pull && docker-compose up -d'
