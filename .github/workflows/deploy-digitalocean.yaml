@@ -13,10 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up secrets
+        run: |
+          echo "USERNAME=${{ secrets.DROPLET_USERNAME }}" >> $GITHUB_ENV
+          echo "PASSWORD=${{ secrets.DROPLET_PASSWORD }}" >> $GITHUB_ENV
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
       - name: Deploy to Droplet
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.DIGITAL_SSH }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 64.226.96.194 >> ~/.ssh/known_hosts
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@64.226.96.194 'cd ./fivicon-next && git pull && docker-compose up -d'
+          sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $USERNAME@64.226.96.194 'cd /path/to/fivicon-next && git pull && docker-compose up -d'
