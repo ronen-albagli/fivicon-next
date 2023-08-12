@@ -23,4 +23,4 @@ jobs:
 
       - name: Deploy to Droplet
         run: |
-          sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $USERNAME@64.226.96.194 'cd /path/to/fivicon-next && git pull && docker-compose up -d'
+          sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $USERNAME@64.226.96.194 'cd ./fivicon-next && git pull && docker-compose up -d'
