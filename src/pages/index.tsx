@@ -43,7 +43,7 @@ export default function Home(props: any) {
   };
 
   useEffect(() => {
-    window.location.href = 'https://fivicon.com/lp';
+    fetchFiviStats();
   }, []);
 
   useEffect(() => {
