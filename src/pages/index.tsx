@@ -43,7 +43,7 @@ export default function Home(props: any) {
   };
 
   useEffect(() => {
-    fetchFiviStats();
+    window.location.href = 'https://fivicon.com/lp';
   }, []);
 
   useEffect(() => {
@@ -122,7 +122,7 @@ export default function Home(props: any) {
               animate
               offsetColor={pallette?.primary}
               bgColor={pallette?.darkBlack}
-              onClick={() => {}}
+              onClick={() => { }}
             >
               <Text
                 size={fontSizes?.subTitle}
@@ -202,7 +202,7 @@ const TextContainers = styled.div<any>`
   }
 `;
 
-const TextContainersAnimate = styled(TextContainers)<any>`
+const TextContainersAnimate = styled(TextContainers) <any>`
   animation: fadeIn 800ms forwards 500ms;
   opacity: 0;
 
