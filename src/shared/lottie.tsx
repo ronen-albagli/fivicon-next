@@ -22,7 +22,7 @@ export const LottieAnimations = ({
       options={{
         ...defaultOptions,
         animationData: animation,
-        loop: loop !== undefined ? loop : true,
+        loop: true,
       }}
       height={height || '100vh'}
       width={width || '100vw'}

@@ -1,10 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   font-family:'Roboto';
-
+  scroll-behavior: smooth;
 }
 
+.features {
+  font-family: 'Space Grotesk';
+  color: white;
+}
 
+.counters {
+  font-family: 'Be Vietnam Pro';
+  color: rgba(255, 255, 255, 0.47);
+  font-size:20px
+}
 
+.counters .numbers {
+  font-family: 'Be Vietnam Pro';
+  color: rgba(255, 255, 255, 0.47);
+  font-size:42px
+}
+
+.subtitle {
+  font-family: 'Be Vietnam Pro';
+  color: rgba(255, 255, 255, 0.47);
+  font-size:20px
+}
+
+.input-wrapper {
+
+}
+/* .try-now {
+  margin: 102px 0px;
+} */
+
+.try-input {
+  height:60px;
+  background-color: #171717;
+  border:black;
+  outline:none;
+  color: rgba(255, 255, 255, 0.47);;
+}
+
+.logo-data {
+  font-size:14px;
+  color:rgb(150, 150, 150);
+}
+
+.try-button {
+  height:60px;
+  width:60px;
+  background-color: #262626;
+  color:white;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+
+}
 :root {
   --max-width: 1100px;
   --border-radius: 12px;

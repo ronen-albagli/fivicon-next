@@ -1,33 +1,30 @@
-// const withPlugins = require('next-compose-plugins');
-// const withImages = require('next-images');
-// const withFonts = require('next-fonts');
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    // You can specify MDX options here if needed
+  },
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  https: true,
-  // env: {
-  //   NEXT_PUBLIC_ENV: 'sdfsdfsdfds',
-  // },
+  // https: true, // Ensure you have setup HTTPS correctly if needed
+
   async rewrites() {
     return [
       {
         source: '/',
         destination: '/trial',
       },
+      // {
+      //   source: "/doc",
+      //   destination: "/doc/index.html",
+      // },
     ];
   },
+
+  pageExtensions: ['js', 'ts', 'tsx', 'md', 'mdx'],
 };
 
-// module.exports = withPlugins([[withImages]], {
-//   webpack: (config) => {
-//     config.module.rules.push({
-//       test: /\.svg$/,
-//       use: ['@svgr/webpack'],
-//     });
-//     return config;
-//   },
-//   babelConfigFile: './.babelrc',
-// });
-
-module.exports = nextConfig;
+// Combine the MDX configuration with the existing Next.js config
+module.exports = withMDX(nextConfig);

@@ -30,13 +30,13 @@ export const SideMenu = ({ isMobile }: any) => {
   return (
     <SideMenuContainer open={menuOpen}>
       <MenuList>
-         <MenuElement 
-              // isMobile={isMobile}
-            // key={i}
-            // active={element.to === activeRoute}
-            // onClick={() => !element.soon && navigate(element.to)}
-            onClick={() => navigate('/console/api')}
-         >
+        <MenuElement
+          // isMobile={isMobile}
+          // key={i}
+          // active={element.to === activeRoute}
+          // onClick={() => !element.soon && navigate(element.to)}
+          onClick={() => navigate('/console/api')}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
